@@ -1,0 +1,35 @@
+﻿<Window x:Class="ToDoStylet.Pages.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToDoStylet"
+        xmlns:vm="clr-namespace:ToDoStylet.ViewModel;assembly=ToDoStylet.ViewModel"
+        mc:Ignorable="d"
+        Title="Stylet Start Project" Height="450" Width="800"
+        xmlns:s="https://github.com/canton7/Stylet" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        d:DataContext="{d:DesignInstance vm:ShellViewModel}"
+        Loaded="{s:Action Open}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>        
+        <materialDesign:Card Padding="32" Margin="16" Grid.Row="0">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}" Text="{Binding NowState}"></TextBlock>
+        </materialDesign:Card>
+        <materialDesign:Card Padding="32" Margin="16" Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="OpenStudentWindow" Grid.Column="0" Command ="{s:Action OpenStudentWindow}"></Button>
+                <Button Content="Publish" Grid.Column="1" Command="{s:Action Publish}"></Button>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>
